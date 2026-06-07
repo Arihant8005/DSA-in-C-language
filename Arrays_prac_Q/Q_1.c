@@ -4,7 +4,8 @@
 int Largest_element(int a[] , int size);
 int main(){
     int a[] = {1 ,-2, 33, -999, 0};
-    printf(" Largest element = %d",Largest_element(a,5));
+    int size = sizeof(a)/sizeof(a[0]);
+    printf(" Largest element = %d",Largest_element(a,size));
 }
 int Largest_element(int a[] , int size)
 {
@@ -18,4 +19,4 @@ int Largest_element(int a[] , int size)
 }
 
 // Time coomplexity = o(n)
-// space complextiy = o(1)  because only variablr max is used whic is independent of size
+// space complextiy = o(1)  because only variablr max is used which is independent of size
