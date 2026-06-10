@@ -12,11 +12,9 @@ int main() {
     struct Node *temp = NULL;
     struct Node *newNode = NULL;
 
-    int i;
-
     printf("Enter 5 numbers:\n");
 
-    for (i = 1; i <= 5; i++) {
+    for (int i = 1; i <= 5; i++) {
 
         // Create a new node
         newNode = (struct Node *)malloc(sizeof(struct Node));
