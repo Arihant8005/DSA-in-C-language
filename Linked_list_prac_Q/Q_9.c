@@ -1,4 +1,4 @@
-// find sum of all elements in a linked list
+// find average of all elements in a linked list
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,13 +34,16 @@ int main() {
     }
 
     int sum = 0;
+    float average;
     temp = head;
 
     while (temp != NULL) {
         sum += temp->data;
+        average = (float)(sum)/5;
         temp = temp->link;
     }
 
     printf("Sum of all elements = %d", sum);
+    printf("Average = %.2f",average);
 
 }
