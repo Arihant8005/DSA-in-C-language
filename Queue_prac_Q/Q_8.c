@@ -1,5 +1,6 @@
 //Write a C function to search for a given element in the queue.
 
+
 #include <stdio.h>
 
 int queue[5];
@@ -23,7 +24,6 @@ void enqueue(int data)
         queue[rear] = data;
     }
 }
-
 void search(int key)
 {
     if(front == -1)
@@ -59,6 +59,4 @@ int main()
 
     search(20);
     search(50);
-
-    return 0;
 }
