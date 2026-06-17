@@ -1,4 +1,4 @@
-// Perform peek operation in a circular linked list
+// Perform peek operation in a circular queue
 
 #include <stdio.h>
 

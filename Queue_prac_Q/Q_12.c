@@ -1,4 +1,4 @@
-// Display elements of a queue using circular linked list
+// Display elements of a queue using circular queue
 
 #include <stdio.h>
 
