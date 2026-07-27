@@ -27,15 +27,8 @@ int count()
 
 int main()
 {
-    int i, data;
-
-    printf("Enter 5 elements:\n");
-
-    for(i = 0; i < SIZE; i++)
-    {
-        scanf("%d", &data);
-        push(data);
-    }
+    push(12);
+    push(13);
 
     printf("Total elements in stack = %d\n", count());
 

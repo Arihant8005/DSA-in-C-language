@@ -34,16 +34,7 @@ int isFull()
 
 int main()
 {
-    int i, data;
-
-    printf("Enter 5 elements:\n");
-
-    for(i = 0; i < SIZE; i++)
-    {
-        scanf("%d", &data);
-        push(data);
-    }
-
+    push(12);
     if(isFull())
     {
         printf("Stack is Full\n");
