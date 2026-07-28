@@ -42,7 +42,7 @@ int main() {
     printf("Enter data to insert at beginning: ");
     scanf("%d", &new_node->data);
 
-    new_node->link = head;
+    new_node->link = head;   //head jisko point kar raha tha aab usko new_node ka link point karega
     head = new_node;
     
     temp = head;
