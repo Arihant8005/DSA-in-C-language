@@ -1,3 +1,5 @@
+//"Reverse Stack 1 using Stack 2 and keep the result in Stack 1"
+
 #include <stdio.h>
 
 int stack1[5];
@@ -6,92 +8,69 @@ int stack2[5];
 int top1 = -1;
 int top2 = -1;
 
-// Push into Stack 1
 void push1(int data)
 {
-    if (top1 == 4)
-    {
-        printf("Stack 1 Overflow\n");
-    }
-    else
-    {
-        top1++;
-        stack1[top1] = data;
-    }
+    top1++;
+    stack1[top1] = data;
 }
 
-// Pop from Stack 1
 int pop1()
 {
-    if (top1 == -1)
-    {
-        printf("Stack 1 Underflow\n");
-        return -1;
-    }
-
     int value = stack1[top1];
     top1--;
     return value;
 }
 
-// Push into Stack 2
 void push2(int data)
 {
-    if (top2 == 4)
-    {
-        printf("Stack 2 Overflow\n");
-    }
-    else
-    {
-        top2++;
-        stack2[top2] = data;
-    }
+    top2++;
+    stack2[top2] = data;
 }
 
-// Pop from Stack 2
 int pop2()
 {
-    if (top2 == -1)
-    {
-        printf("Stack 2 Underflow\n");
-        return -1;
-    }
-
     int value = stack2[top2];
     top2--;
     return value;
 }
 
-// Display Stack 1
 void display1()
 {
     int i;
 
-    if (top1 == -1)
-    {
-        printf("Stack 1 is Empty\n");
-        return;
-    }
-
-    for (i = top1; i >= 0; i--)
+    for(i = top1; i >= 0; i--)
     {
         printf("%d\n", stack1[i]);
     }
 }
 
+
 // Reverse Stack 1 using Stack 2
 void reverseStack()
 {
-    while (top1 != -1)
+    int temp[5];
+    int i = 0;
+
+    // Move stack1 to stack2
+    while(top1 != -1)
     {
         push2(pop1());
     }
 
-    while (top2 != -1)
+    // Move stack2 to temporary array
+    while(top2 != -1)
     {
-        push1(pop2());
+        temp[i] = pop2();
+        i++;
+    }
+
+    // Put elements back into stack1
+    for(i = 0; i < 4; i++)
+    {
+        push1(temp[i]);
     }
 }
+
 
 int main()
 {
