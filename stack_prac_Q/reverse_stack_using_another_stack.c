@@ -1,13 +1,9 @@
-//"Reverse Stack 1 using Stack 2 and keep the result in Stack 1"
-
 #include <stdio.h>
 
-int stack1[5];
-int stack2[5];
+int stack1[5], stack2[5], stack3[5];
+int top1 = -1, top2 = -1, top3 = -1;
 
-int top1 = -1;
-int top2 = -1;
-
+// Stack 1
 void push1(int data)
 {
     top1++;
@@ -21,6 +17,7 @@ int pop1()
     return value;
 }
 
+// Stack 2
 void push2(int data)
 {
     top2++;
@@ -34,6 +31,21 @@ int pop2()
     return value;
 }
 
+// Stack 3
+void push3(int data)
+{
+    top3++;
+    stack3[top3] = data;
+}
+
+int pop3()
+{
+    int value = stack3[top3];
+    top3--;
+    return value;
+}
+
+// Display Stack 1
 void display1()
 {
     int i;
@@ -44,33 +56,27 @@ void display1()
     }
 }
 
-
-// Reverse Stack 1 using Stack 2
+// Reverse Stack 1
 void reverseStack()
 {
-    int temp[5];
-    int i = 0;
-
-    // Move stack1 to stack2
+    // Stack1 -> Stack2
     while(top1 != -1)
     {
         push2(pop1());
     }
 
-    // Move stack2 to temporary array
+    // Stack2 -> Stack3
     while(top2 != -1)
     {
-        temp[i] = pop2();
-        i++;
+        push3(pop2());
     }
 
-    // Put elements back into stack1
-    for(i = 0; i < 4; i++)
+    // Stack3 -> Stack1
+    while(top3 != -1)
     {
-        push1(temp[i]);
+        push1(pop3());
     }
 }
-
 
 int main()
 {

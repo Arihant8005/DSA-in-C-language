@@ -1,39 +1,63 @@
 #include<stdio.h>
 
-# define size 5
-int stack[size];
-int top = -1;
+int stack1[5];
+int stack2[5];
+int stack3[5];
 
-void push(int data){
-    if(top == size - 1){
-        printf("overflow");
-    }
-    top++;
-    stack[top] = data;
+int top1 = -1;
+int top2 = -1;
+int top3 = -1;
+
+void push1(int data){
+    top1++;
+    stack1[top1] = data;
 }
-void pop(){
-    if(top == -1){
-        printf("stack is empty");
-    }
-    printf("%d element is poped\n",stack[top]);
-    top--;
+int pop1(){
+    int value = stack1[top1];
+    top1--;
+    return value;
+}
+void push2(int data){
+    top2++;
+    stack2[top2] = data;
+}
+int pop2(){
+    int value = stack2[top2];
+    top2--;
+    return value;
 }
 
-void count(){
-    int count = 0;
-    if(top == -1){
-        printf("stack is empty");
+void display(){
+    if(top1 == -1){
+        printf("empty");
     }
-    for(int i = top; i >= 0; i--){
-        count++;
+    else{
+        for(int i = top1; i >= 0; i--){
+            printf("%d\n",stack1[i]);
+        }
     }
-    printf("Number of elements: %d",count);
+}
+void insert_bottom(int data){
+    while(top1 != -1){
+        push2(pop1());
+    }
+    push2(data);
+    while(top2 != -1){
+        push1(pop2());
+    }
+
 }
 int main(){
-    push(12);
-    push(13);
-    push(14);
-    push(15);
-    pop();
-    count();
+
+    push1(1);
+    push1(2);
+    push1(3);
+    push1(4);
+
+    printf("original stack: \n");
+    display();
+
+    insert_bottom(78);
+    printf("inserted stack: \n");
+    display();
 }
